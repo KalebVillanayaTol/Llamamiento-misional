@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1b2a">
+<meta name="description" content="Elder Villanueva servirá en la Misión Tuxtla Gutiérrez. Apóyalo con lo que necesita para prepararse.">
+<title>Elder Villanueva · Misión Tuxtla Gutiérrez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8fafc;
+  --bg2: #ffffff;
+  --card: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --navy: #0d1b2a;
+  --navy2: #1b263b;
+  --gold: #b8860b;
+  --gold-light: #fef9e7;
+  --gold-border: #e6cc65;
+  --line: #e2e8f0;
+  --cat-bg: #f1f5f9;
+  --green: #16a34a;
+  --green-hover: #15803d;
+  --danger: #dc2626;
+  --shadow-sm: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0f19;
+    --bg2: #111827;
+    --card: #1f2937;
+    --ink: #f3f4f6;
+    --muted: #9ca3af;
+    --navy: #030712;
+    --navy2: #111827;
+    --gold: #d4af37;
+    --gold-light: #26210f;
+    --gold-border: #856a1b;
+    --line: #374151;
+    --cat-bg: #1e293b;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--ink);
+  font: 16px/1.7 "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { margin: 0; font-family: "Playfair Display", Georgia, serif; }
+
+/* Header Hero Mejorado */
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  padding: clamp(60px, 9vw, 96px) 20px clamp(70px, 10vw, 100px);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  border-bottom: 4px solid var(--gold);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-in { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+.badge-mission {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--gold);
+  color: #fce8a6;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(38px, 9vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.hero p { max-width: 520px; margin: 0 auto; color: rgba(255, 255, 255, 0.85); font-size: 17px; }
+
+.location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fce8a6;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.meta-sub {
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Menú flotante (Chips) */
+.chips {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 16px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+
+.chips a {
+  flex: none;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 50px;
+  color: var(--muted);
+  background: var(--bg);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.chips a.on, .chips a:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+@media(prefers-color-scheme: dark) {
+  .chips a.on, .chips a:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+}
+
+.wrap { width: min(860px, 100%); margin: 0 auto; padding: 0 20px; }
+section { padding: clamp(40px, 7vw, 64px) 0 10px; }
+
+.section-head { text-align: center; margin-bottom: 32px; }
+h2 { font-size: clamp(30px, 6vw, 40px); font-weight: 700; color: var(--ink); }
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--gold);
+}
+.divider::before, .divider::after { content: ""; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+/* Carta */
+.letter-box {
+  position: relative;
+  padding: clamp(24px, 5vw, 40px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+.letter-box p { margin: 0 0 16px; color: var(--muted); }
+.letter-box p:first-of-type { color: var(--ink); font-weight: 600; }
+.signature { margin-top: 24px; font-family: "Playfair Display", Georgia, serif; font-size: 26px; color: var(--gold); font-weight: 700; }
+
+/* Banner informativo */
+.notice-banner {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold-border);
+  border-left: 5px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.notice-icon { font-size: 24px; flex: none; }
+.notice-banner p { margin: 0; font-size: 15px; color: var(--ink); line-height: 1.5; }
+
+/* Categorías y Tarjetas de Artículos */
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 16px;
+  font-size: clamp(22px, 5vw, 26px);
+  font-weight: 700;
+  color: var(--ink);
+}
+.category-title span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold-border);
+  font-size: 18px;
+}
+
+.items-grid { display: grid; gap: 14px; }
+@media(min-width: 640px) { .items-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.item-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.item-card h3 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+
+.item-qty {
+  align-self: flex-start;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: var(--gold-light);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.item-note { flex: 1; margin: 0 0 16px; color: var(--muted); font-size: 14px; }
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--green);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.btn:hover { background: var(--green-hover); }
+.btn:active { transform: scale(0.98); }
+.btn.btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+.btn.btn-outline:hover { background: var(--cat-bg); }
+
+/* Sección de Ayuda Directa */
+.help-box {
+  margin-top: 48px;
+  padding: clamp(24px, 5vw, 36px);
+  text-align: center;
+  background: var(--card);
+  border: 2px dashed var(--gold-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.help-box h3 { font-size: 24px; margin-bottom: 8px; }
+.help-box p { margin: 6px 0; color: var(--muted); font-size: 15px; }
+.phone-number { font-size: 22px; font-weight: 800; color: var(--gold); letter-spacing: 0.05em; margin: 8px 0; display: block; }
+.help-box .btn { max-width: 300px; margin: 16px auto 0; }
+
+footer {
+  padding: 40px 20px calc(50px + env(safe-area-inset-bottom, 0px));
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+footer span { color: var(--danger); display: inline-block; animation: pulse 1.5s infinite; }
+
+/* Modal flotante */
+dialog {
+  width: min(440px, 92vw);
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+dialog::backdrop { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px); }
+
+.modal-content {
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+}
+.modal-content h3 { font-size: 24px; margin-bottom: 4px; }
+.modal-sub { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+
+label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; color: var(--ink); }
+input {
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px "Plus Jakarta Sans", sans-serif;
+}
+input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15); }
+input.error { border-color: var(--danger); }
+
+.error-msg { min-height: 18px; margin: 0 0 12px; color: var(--danger); font-size: 12px; font-weight: 600; }
+
+.qty-control { display: flex; gap: 8px; margin-bottom: 20px; }
+.qty-control button {
+  flex: none;
+  width: 46px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.qty-control button:hover { background: var(--cat-bg); }
+.qty-control input { margin: 0; text-align: center; }
+
+.modal-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* Notificación flotante (Toast) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, 150%);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  pointer-events: none;
+}
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <span class="badge-mission">✦ Llamamiento Misional</span>
+    <h1>Elder Villanueva</h1>
+    <p>Con el corazón lleno de gratitud, les comparto que he sido llamado a servir una misión.</p>
+    <div class="location-pill">📍 Misión Tuxtla Gutiérrez, Chiapas</div>
+    <div class="meta-sub">CCM · Preparación en curso</div>
+  </div>
+</header>
+
+<nav class="chips" id="chips" aria-label="Categorías de la lista"></nav>
+
+<main class="wrap">
+  <section id="carta">
+    <div class="section-head">
+      <h2>Gracias por todo</h2>
+      <div class="divider">✦</div>
+    </div>
+    <div class="letter-box">
+      <p>Queridos familiares y amigos:</p>
+      <p>Hoy quiero darles las gracias de todo corazón. Gracias por sus oraciones, por sus consejos y por creer en mí cuando yo mismo dudaba. Ustedes han sido parte de cada paso que me trajo hasta aquí.</p>
+      <p>Voy a dedicar los próximos dos años a servir a las personas de Tuxtla Gutiérrez, y me siento emocionado y muy agradecido por esta oportunidad. Saber que cuento con ustedes me da fuerzas.</p>
+      <p>Si desean ayudarme a prepararme, abajo encontrarán lo que necesito. Cualquier apoyo, grande o pequeño, lo recibiré con mucho cariño. Y si por algún motivo no pueden, no se preocupen: sus oraciones valen más que cualquier regalo.</p>
+      <p>Con todo mi cariño,</p>
+      <div class="signature">Elder Villanueva</div>
+    </div>
+  </section>
+
+  <section id="lista">
+    <div class="section-head">
+      <h2>Lo que necesito</h2>
+      <div class="divider">✦</div>
+    </div>
+    
+    <div class="notice-banner">
+      <div class="notice-icon">💚</div>
+      <p><b>¿Cómo apoyar?</b> Elige el artículo con el que deseas colaborar y toca <b>“Yo me anoto”</b>. Ingresa tus datos y se abrirá WhatsApp con el mensaje listo para enviármelo. ¡Muchas gracias de antemano!</p>
+    </div>
+
+    <div id="list"></div>
+
+    <div class="help-box">
+      <h3>¿Se les complica?</h3>
+      <p>No hay ningún problema, pueden escribirme o llamarme directo al:</p>
+      <span class="phone-number">+52 220 504 8184</span>
+      <p>y con gusto los apunto personalmente.</p>
+      <a class="btn" id="direct-whatsapp" href="#" target="_blank" rel="noopener">💬 Escribir por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<dialog id="modal" aria-labelledby="modal-title">
+  <form class="modal-content" id="form" novalidate>
+    <h3 id="modal-title">Me anoto</h3>
+    <p class="modal-sub" id="modal-sub"></p>
+
+    <label for="input-name">Tu nombre completo</label>
+    <input id="input-name" autocomplete="name" placeholder="Ej. Juan Pérez" maxlength="80">
+    <p class="error-msg" id="name-error" role="alert"></p>
+
+    <label for="input-phone">Tu celular (10 dígitos)</label>
+    <input id="input-phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Ej. 2221234567" maxlength="14">
+    <p class="error-msg" id="phone-error" role="alert"></p>
+
+    <label for="input-qty">Cantidad a aportar</label>
+    <div class="qty-control">
+      <button type="button" id="btn-minus" aria-label="Disminuir cantidad">−</button>
+      <input id="input-qty" type="number" inputmode="numeric" min="1" max="99" value="1">
+      <button type="button" id="btn-plus" aria-label="Aumentar cantidad">+</button>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" class="btn btn-outline" id="btn-cancel">Cancelar</button>
+      <button type="submit" class="btn">Continuar 💬</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite">✅ ¡Listo! Abriendo WhatsApp…</div>
+
+<footer>Con cariño y gratitud · Elder Villanueva <span aria-hidden="true">♥</span></footer>
+
+<script>
+(function(){
+  "use strict";
+  const PHONE = "522205048184";
+  const NAME = "Elder Villanueva";
+  const STORAGE_KEY = "ev-contact-data";
+  
+  const ICONS = {
+    "Vestimenta y Ropa": "👔",
+    "Ropa Bautismal y Actividades": "🤍",
+    "Estacional y Varios": "☔",
+    "Aseo, Toallas y Cama": "🛏️",
+    "Escrituras": "📖"
+  };
+
+  const ITEMS = [
+    ["Vestimenta y Ropa", "Camisas blancas", "10 a 12", "Manga larga, estilo formal misional"],
+    ["Vestimenta y Ropa", "Corbatas", "5 a 6", "Colores sólidos y diseños sobrios"],
+    ["Vestimenta y Ropa", "Pantalones de vestir", "4 a 6", "Largo formal, colores sobrios"],
+    ["Vestimenta y Ropa", "Zapatos de vestir", "2 pares", "Cómodos y resistentes para caminar"],
+    ["Vestimenta y Ropa", "Gárments", "12 a 14", "Ropa interior asignada"],
+    ["Vestimenta y Ropa", "Calcetines", "10 a 12 pares", "Oscuros principalmente"],
+    ["Vestimenta y Ropa", "Cinturones", "1 a 2", "De cuero formales"],
+    ["Vestimenta y Ropa", "Pijama", "1", "Ropa para dormir"],
+    ["Vestimenta y Ropa", "Bata", "1", "Según necesidad"],
+    ["Vestimenta y Ropa", "Pantuflas", "1 par", "Para descanso"],
+    ["Vestimenta y Ropa", "Sandalias para ducharse", "1 par", "Plástico o goma"],
+    ["Ropa Bautismal y Actividades", "Ropa bautismal completa", "1 conjunto", "Pantalón, calcetines, corbata, camisa de manga larga y cinturón, todo blanco"],
+    ["Ropa Bautismal y Actividades", "Ropa deportiva", "1 a 2 mudas", "Para ejercicio y actividades"],
+    ["Estacional y Varios", "Suéteres", "1 a 2", "Ligeros o abrigadores"],
+    ["Estacional y Varios", "Impermeable liviano", "1", "Ideal para la temporada de lluvias en Chiapas"],
+    ["Estacional y Varios", "Paraguas resistente", "1", "Resistente y sin motivos llamativos"],
+    ["Estacional y Varios", "Estuche de costura pequeño", "1", "Práctico para el viaje"],
+    ["Estacional y Varios", "Linterna LED pequeña y pilas", "1", "Portátil"],
+    ["Estacional y Varios", "Termómetro", "1", "Primeros auxilios básicos"],
+    ["Estacional y Varios", "Ganchos para la ropa", "1 paquete", "Para colgar prendas"],
+    ["Aseo, Toallas y Cama", "Toallas de baño", "2", "Toallas grandes"],
+    ["Aseo, Toallas y Cama", "Toallas de mano", "2", "Tamaño mediano"],
+    ["Aseo, Toallas y Cama", "Toallas para la cara", "2", "Tamaño pequeño"],
+    ["Aseo, Toallas y Cama", "Sábanas", "1 juego", "Para cama individual"],
+    ["Aseo, Toallas y Cama", "Funda de almohada", "1", "Para descanso"],
+    ["Escrituras", "Libro de Mormón", "1", "Ejemplar personal de estudio"],
+    ["Escrituras", "Triple", "1", "Combinación triple (Doctrina y Convenios, Perla de Gran Precio)"],
+    ["Escrituras", "Biblia", "1", "Ejemplar personal"]
+  ];
+
+  function $(id) { return document.getElementById(id); }
+  function createElement(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text) el.textContent = text;
+    return el;
+  }
+
+  function getWhatsAppUrl(msg) {
+    return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg);
+  }
+
+  const listContainer = $("list");
+  const chipsContainer = $("chips");
+  const modal = $("modal");
+  const form = $("form");
+  const inputName = $("input-name");
+  const inputPhone = $("input-phone");
+  const inputQty = $("input-qty");
+
+  let currentItem = null;
+  let lastActiveButton = null;
+  let currentGrid = null;
+  let lastCategory = "";
+  let categoryIndex = 0;
+
+  ITEMS.forEach(function(item, idx) {
+    if (item[0] !== lastCategory) {
+      lastCategory = item[0];
+      const catId = "cat-" + (categoryIndex++);
+      const icon = ICONS[lastCategory] || "✦";
+
+      const heading = createElement("h3", "category-title");
+      heading.id = catId;
+      heading.appendChild(createElement("span", "", icon));
+      heading.appendChild(document.createTextNode(lastCategory));
+      listContainer.appendChild(heading);
+
+      currentGrid = createElement("div", "items-grid");
+      listContainer.appendChild(currentGrid);
+
+      const chipLink = createElement("a", "", icon + " " + lastCategory);
+      chipLink.href = "#" + catId;
+      chipLink.dataset.target = catId;
+      chipsContainer.appendChild(chipLink);
+    }
+
+    const card = createElement("article", "item-card");
+    card.style.animationDelay = (idx % 6) * 40 + "ms";
+
+    card.appendChild(createElement("h3", "", item[1]));
+    card.appendChild(createElement("div", "item-qty", "Sugerido: " + item[2]));
+    card.appendChild(createElement("p", "item-note", item[3]));
+
+    const btn = createElement("button", "btn", "💚 Yo me anoto");
+    btn.type = "button";
+    btn.dataset.index = idx;
+    btn.setAttribute("aria-label", "Me anoto para apoyar con " + item[1]);
+    card.appendChild(btn);
+
+    currentGrid.appendChild(card);
+  });
+
+  // Intersection Observer para los chips de navegación superior
+  if ("IntersectionObserver" in window) {
+    const links = [].slice.call(chipsContainer.querySelectorAll("a"));
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function(link) {
+          const isActive = link.dataset.target === entry.target.id;
+          link.classList.toggle("on", isActive);
+          if (isActive) {
+            chipsContainer.scrollTo({
+              left: link.offsetLeft - chipsContainer.clientWidth / 2 + link.offsetWidth / 2,
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    }, { rootMargin: "-40% 0px -50% 0px" });
+
+    links.forEach(function(link) {
+      observer.observe($(link.dataset.target));
+    });
+  }
+
+  function clearErrors() {
+    [inputName, inputPhone].forEach(function(el) {
+      el.classList.remove("error");
+    });
+    $("name-error").textContent = "";
+    $("phone-error").textContent = "";
+  }
+
+  function showToast() {
+    const toast = $("toast");
+    toast.classList.add("show");
+    setTimeout(function() {
+      toast.classList.remove("show");
+    }, 3200);
+  }
+
+  function closeModal() {
+    modal.close();
+    clearErrors();
+    currentItem = null;
+    if (lastActiveButton) lastActiveButton.focus();
+  }
+
+  listContainer.addEventListener("click", function(e) {
+    const btn = e.target.closest("button[data-index]");
+    if (!btn) return;
+    currentItem = ITEMS[btn.dataset.index];
+    lastActiveButton = btn;
+    clearErrors();
+
+    $("modal-title").textContent = currentItem[1];
+    $("modal-sub").textContent = "Cantidad sugerida: " + currentItem[2];
+    inputQty.value = 1;
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved) {
+        inputName.value = saved.name || "";
+        inputPhone.value = saved.phone || "";
+      }
+    } catch(err) {}
+
+    modal.showModal();
+  });
+
+  $("btn-minus").onclick = function() {
+    inputQty.value = Math.max(1, (parseInt(inputQty.value, 10) || 1) - 1);
+  };
+  $("btn-plus").onclick = function() {
+    inputQty.value = Math.min(99, (parseInt(inputQty.value, 10) || 0) + 1);
+  };
+  $("btn-cancel").onclick = closeModal;
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal) closeModal();
+  });
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (!currentItem) return;
+    clearErrors();
+
+    const nameVal = inputName.value.trim();
+    const phoneVal = inputPhone.value.replace(/\D/g, "");
+    const qtyVal = Math.max(1, parseInt(inputQty.value, 10) || 1);
+    let isValid = true;
+
+    if (nameVal.length < 2) {
+      inputName.classList.add("error");
+      $("name-error").textContent = "Por favor escribe tu nombre completo.";
+      isValid = false;
+    }
+    if (phoneVal.length !== 10) {
+      inputPhone.classList.add("error");
+      $("phone-error").textContent = "Escribe un número celular válido de 10 dígitos.";
+      isValid = false;
+    }
+
+    if (!isValid) {
+      (nameVal.length < 2 ? inputName : inputPhone).focus();
+      return;
+    }
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ name: nameVal, phone: phoneVal }));
+    } catch(err) {}
+
+    const message = "Hola " + NAME + ", soy " + nameVal + " (cel: " + phoneVal + "). Me anoto para apoyarte con: *" + currentItem[1] + "* (cantidad: " + qtyVal + "). ¡Avísame cómo nos coordinamos!";
+    const url = getWhatsAppUrl(message);
+
+    closeModal();
+    showToast();
+
+    if (!window.open(url, "_blank")) {
+      window.location.href = url;
+    }
+  });
+
+  $("direct-whatsapp").href = getWhatsAppUrl("Hola " + NAME + ", quiero apoyarte con tu misión. ¿Qué me falta por apuntar?");
+})();
+</script>
+</body>
+</html>
