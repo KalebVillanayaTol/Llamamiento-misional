@@ -422,6 +422,11 @@ input.error { border-color: var(--danger); }
       <div class="divider">✦</div>
     </div>
     <div class="letter-box">
+      <!-- Aviso añadido sobre tallas, depósitos y ropa -->
+      <div style="background: var(--gold-light); border: 1px solid var(--gold-border); border-left: 4px solid var(--gold); padding: 14px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 15px; color: var(--ink);">
+        ℹ️ <b>Nota importante:</b> Para más información sobre tallas, dudas con los depósitos o para que yo compre la ropa directamente, apúntense dando clic en el botón <b>“Yo me anoto”</b> de cualquier artículo o mándenme un mensaje directo. ¡Muchas gracias!
+      </div>
+
       <p>Queridos familiares y amigos:</p>
       <p>Hoy quiero darles las gracias de todo corazón. Gracias por sus oraciones, por sus consejos y por creer en mí cuando yo mismo dudaba. Ustedes han sido parte de cada paso que me trajo hasta aquí.</p>
       <p>Voy a dedicar los próximos dos años a servir a las personas de Tuxtla Gutiérrez, y me siento emocionado y muy agradecido por esta oportunidad. Saber que cuento con ustedes me da fuerzas.</p>
@@ -514,6 +519,7 @@ input.error { border-color: var(--danger); }
     ["Vestimenta y Ropa", "Sandalias para ducharse", "1 par", "Plástico o goma"],
     ["Ropa Bautismal y Actividades", "Ropa bautismal completa", "1 conjunto", "Pantalón, calcetines, corbata, camisa de manga larga y cinturón, todo blanco"],
     ["Ropa Bautismal y Actividades", "Ropa deportiva", "1 a 2 mudas", "Para ejercicio y actividades"],
+    ["Estacional y Varios", "Maletas de 28 pulgadas", "2", "Maletas grandes para viaje misional"],
     ["Estacional y Varios", "Suéteres", "1 a 2", "Ligeros o abrigadores"],
     ["Estacional y Varios", "Impermeable liviano", "1", "Ideal para la temporada de lluvias en Chiapas"],
     ["Estacional y Varios", "Paraguas resistente", "1", "Resistente y sin motivos llamativos"],
@@ -594,7 +600,6 @@ input.error { border-color: var(--danger); }
     currentGrid.appendChild(card);
   });
 
-  // Intersection Observer para los chips de navegación superior
   if ("IntersectionObserver" in window) {
     const links = [].slice.call(chipsContainer.querySelectorAll("a"));
     const observer = new IntersectionObserver(function(entries) {
